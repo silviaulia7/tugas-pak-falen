@@ -2,7 +2,6 @@
 session_start();
 include "conn.php";
 
-// 🔒 Cek login & role
 if (!isset($_SESSION['username'])) {
     header("Location: index.php?page=login");
     exit();
@@ -15,7 +14,6 @@ if ($_SESSION['role'] !== 'admin') {
     exit();
 }
 
-// Ambil data supplier berdasarkan ID
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "<script>alert('ID Supplier tidak ditemukan!'); window.location='master_supplier.php';</script>";
     exit();
@@ -30,7 +28,6 @@ if (!$data) {
     exit();
 }
 
-// Update data jika disubmit
 if (isset($_POST['update'])) {
     $name = mysqli_real_escape_string($conn, $_POST['Supplier_Name']);
     $contact = mysqli_real_escape_string($conn, $_POST['Contact']);

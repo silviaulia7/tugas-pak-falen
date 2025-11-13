@@ -5,19 +5,16 @@ ini_set('display_errors', 1);
 session_start();
 include "conn.php";
 
-// Cek login
 if (!isset($_SESSION['username'])) {
     header("Location: index.php?page=login");
     exit();
 }
 
-// Cek role (hanya admin yang boleh edit)
 if ($_SESSION['role'] !== 'admin') {
     echo "<p style='color:red; text-align:center;'>Akses ditolak! Hanya admin yang bisa mengedit data user.</p>";
     exit();
 }
 
-// Cek apakah parameter id ada
 if (!isset($_GET['id'])) {
     echo "<p style='color:red; text-align:center;'>Parameter ID tidak ditemukan.</p>";
     exit();
@@ -25,7 +22,6 @@ if (!isset($_GET['id'])) {
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 
-// Ambil data user berdasarkan Customer_ID
 $query = "SELECT * FROM user WHERE Customer_ID = '$id'";
 $result = mysqli_query($conn, $query);
 
@@ -36,7 +32,6 @@ if (mysqli_num_rows($result) === 0) {
 
 $user = mysqli_fetch_assoc($result);
 
-// Update data saat tombol disubmit
 if (isset($_POST['update'])) {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);

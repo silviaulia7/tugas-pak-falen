@@ -2,7 +2,6 @@
 session_start();
 include "conn.php";
 
-// 🔒 Cek login & role
 if (!isset($_SESSION['username'])) {
     header("Location: index.php?page=login");
     exit();
@@ -15,7 +14,6 @@ if ($_SESSION['role'] !== 'admin') {
     exit();
 }
 
-// Cek parameter
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "<script>
         alert('Parameter ID tidak ditemukan!');
@@ -26,7 +24,6 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 
 $id = mysqli_real_escape_string($conn, $_GET['id']);
 
-// Hapus data
 $deleteQuery = "DELETE FROM supplier WHERE Supplier_ID='$id'";
 if (mysqli_query($conn, $deleteQuery)) {
     echo "<script>

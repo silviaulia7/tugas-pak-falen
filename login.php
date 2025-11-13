@@ -37,12 +37,12 @@ if (isset($_POST['login'])) {
 <h2 style="text-align:center;">Login</h2>
 <?php if (!empty($error)) echo "<p style='color:red; text-align:center;'>$error</p>"; ?>
 
-<form method="post" action="" style="width:300px; margin:auto; border:1px solid #ccc; padding:20px; border-radius:10px;">
-    <label>Username / Email / Phone / ID</label><br>
-    <input type="text" name="login_id" required style="width:100%; padding:8px;"><br><br>
+<form method="post" action="";>
+    <label>Username / Email / Phone / ID</label>
+    <input type="text" name="login_id" required style="width:100%; padding:8px;">
 
-    <label>Password</label><br>
-    <input type="password" name="password" required style="width:100%; padding:8px;"><br><br>
+    <label>Password</label>
+    <input type="password" name="password" required style="width:100%; padding:8px;">
 
     <button type="submit" name="login" style="width:100%; padding:10px; background:#007bff; color:white; border:none; border-radius:5px;">
         Login

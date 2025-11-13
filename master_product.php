@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include "conn.php";
 
-// Cek login
 if (!isset($_SESSION['username'])) {
     header("Location: index.php?page=login");
     exit();

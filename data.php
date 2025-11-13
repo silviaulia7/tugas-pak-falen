@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 if (!isset($_SESSION['user'])) {
@@ -58,3 +59,9 @@ body {
 </div>
 </body>
 </html>
+=======
+<h1 align='center'>Hello, ini silvi</h1>
+<div style="text-align: center;">
+  <img src="/tugas-pak-falen-5/img/wpp.jpg" alt="Roblox" width="200" style="border-radius: 10px;">
+</div>
+>>>>>>> b7d8a5852065d456cb2dca89f61591aa12a451de

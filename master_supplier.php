@@ -2,16 +2,13 @@
 session_start();
 include "conn.php";
 
-// 🔒 Cek login
 if (!isset($_SESSION['username'])) {
     header("Location: index.php?page=login");
     exit();
 }
 
-// 🔒 Cek role
 $isAdmin = (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
 
-// 🔹 Ambil semua supplier
 $query = "SELECT * FROM supplier ORDER BY Supplier_ID ASC";
 $result = mysqli_query($conn, $query);
 
@@ -22,7 +19,7 @@ include "header.php";
     <h2 style="text-align:center; margin-bottom:20px;">Master Supplier</h2>
 
     <div style="width:80%; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
-        <div></div> <!-- Placeholder kiri biar tombol ke kanan -->
+        <div></div>
         <?php if ($isAdmin): ?>
             <a href="add_supplier.php" 
                style="padding:10px 20px; background:#007bff; color:white; border-radius:5px; text-decoration:none; font-weight:bold;">
@@ -31,7 +28,6 @@ include "header.php";
         <?php endif; ?>
     </div>
 
-    <!-- Tabel data supplier -->
     <table border="1" cellspacing="0" cellpadding="8" style="width:80%; margin:20px auto; border-collapse:collapse;">
         <thead style="background:#007bff; color:white;">
             <tr>
